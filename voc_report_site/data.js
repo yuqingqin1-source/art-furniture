@@ -1895,8 +1895,10 @@ window.VOC_DATA = {
       "价格价值感",
       "可搭配性",
       "尺寸与空间适配",
+      "照片与实物差异",
       "材质",
-      "做工质感"
+      "做工质感",
+      "质量与稳固性"
     ],
     "rows": [
       {
@@ -1953,6 +1955,13 @@ window.VOC_DATA = {
             "satisfaction": 0.8542
           },
           {
+            "name": "照片与实物差异",
+            "value": 0.1212,
+            "count": 16,
+            "positiveCount": 13,
+            "satisfaction": 0.8125
+          },
+          {
             "name": "材质",
             "value": 0.2121,
             "count": 28,
@@ -1965,6 +1974,13 @@ window.VOC_DATA = {
             "count": 58,
             "positiveCount": 50,
             "satisfaction": 0.8621
+          },
+          {
+            "name": "质量与稳固性",
+            "value": 0.447,
+            "count": 59,
+            "positiveCount": 51,
+            "satisfaction": 0.8644
           }
         ]
       },
@@ -2022,6 +2038,13 @@ window.VOC_DATA = {
             "satisfaction": 0.914
           },
           {
+            "name": "照片与实物差异",
+            "value": 0.1231,
+            "count": 48,
+            "positiveCount": 42,
+            "satisfaction": 0.875
+          },
+          {
             "name": "材质",
             "value": 0.0718,
             "count": 28,
@@ -2030,6 +2053,13 @@ window.VOC_DATA = {
           },
           {
             "name": "做工质感",
+            "value": 0.2897,
+            "count": 113,
+            "positiveCount": 106,
+            "satisfaction": 0.9381
+          },
+          {
+            "name": "质量与稳固性",
             "value": 0.2897,
             "count": 113,
             "positiveCount": 106,
@@ -2091,6 +2121,13 @@ window.VOC_DATA = {
             "satisfaction": 0.954
           },
           {
+            "name": "照片与实物差异",
+            "value": 0.1158,
+            "count": 36,
+            "positiveCount": 34,
+            "satisfaction": 0.9444
+          },
+          {
             "name": "材质",
             "value": 0.0547,
             "count": 17,
@@ -2099,6 +2136,13 @@ window.VOC_DATA = {
           },
           {
             "name": "做工质感",
+            "value": 0.2058,
+            "count": 64,
+            "positiveCount": 61,
+            "satisfaction": 0.9531
+          },
+          {
+            "name": "质量与稳固性",
             "value": 0.2058,
             "count": 64,
             "positiveCount": 61,
@@ -2160,6 +2204,13 @@ window.VOC_DATA = {
             "satisfaction": 1.0
           },
           {
+            "name": "照片与实物差异",
+            "value": 0.0841,
+            "count": 9,
+            "positiveCount": 9,
+            "satisfaction": 1.0
+          },
+          {
             "name": "材质",
             "value": 0.0935,
             "count": 10,
@@ -2168,6 +2219,13 @@ window.VOC_DATA = {
           },
           {
             "name": "做工质感",
+            "value": 0.243,
+            "count": 26,
+            "positiveCount": 23,
+            "satisfaction": 0.8846
+          },
+          {
+            "name": "质量与稳固性",
             "value": 0.243,
             "count": 26,
             "positiveCount": 23,
@@ -2229,6 +2287,13 @@ window.VOC_DATA = {
             "satisfaction": 0.8571
           },
           {
+            "name": "照片与实物差异",
+            "value": 0.1739,
+            "count": 8,
+            "positiveCount": 8,
+            "satisfaction": 1.0
+          },
+          {
             "name": "材质",
             "value": 0.1957,
             "count": 9,
@@ -2237,6 +2302,13 @@ window.VOC_DATA = {
           },
           {
             "name": "做工质感",
+            "value": 0.2391,
+            "count": 11,
+            "positiveCount": 11,
+            "satisfaction": 1.0
+          },
+          {
+            "name": "质量与稳固性",
             "value": 0.2391,
             "count": 11,
             "positiveCount": 11,

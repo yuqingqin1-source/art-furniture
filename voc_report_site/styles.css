@@ -821,8 +821,8 @@ h3 {
 
 .price-heat-row {
   display: grid;
-  grid-template-columns: 110px repeat(9, minmax(118px, 1fr));
-  min-width: 1180px;
+  grid-template-columns: 110px repeat(11, minmax(118px, 1fr));
+  min-width: 1420px;
 }
 
 .price-heat-head,

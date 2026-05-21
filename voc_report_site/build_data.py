@@ -230,8 +230,10 @@ PRICE_FUNCTION_PATTERNS = {
     "价格价值感": ["价格价值感"],
     "可搭配性": ["match", "matches", "goes with", "blend", "blends", "pair", "pairs", "addition", "accent", "decor", "space", "room"],
     "尺寸与空间适配": ["尺寸与空间适配"],
+    "照片与实物差异": ["照片与实物差异"],
     "材质": ["材质质感"],
     "做工质感": ["做工质量"],
+    "质量与稳固性": ["做工质量", "quality", "sturdy", "solid", "durable", "wobbly", "fragile", "broken"],
 }
 
 BUYER_GROUP_PATTERNS = {
