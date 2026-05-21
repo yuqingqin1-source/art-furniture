@@ -80,6 +80,7 @@ button {
 
 .brand-subtitle,
 .breadcrumb,
+.author-line,
 .section-kicker,
 .meta-line,
 .card-desc,
@@ -130,6 +131,11 @@ h1 {
   margin-top: 4px;
   font-size: 22px;
   font-weight: 700;
+}
+
+.author-line {
+  margin-top: 4px;
+  font-size: 13px;
 }
 
 h2 {
@@ -581,8 +587,7 @@ h3 {
 
 .scene-layout {
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .scene-chart {
@@ -602,6 +607,10 @@ h3 {
 .unmet-grid {
   display: grid;
   gap: 12px;
+}
+
+.scene-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .scene-view {
@@ -821,8 +830,8 @@ h3 {
 
 .price-heat-row {
   display: grid;
-  grid-template-columns: 110px repeat(11, minmax(118px, 1fr));
-  min-width: 1420px;
+  grid-template-columns: 110px repeat(10, minmax(118px, 1fr));
+  min-width: 1300px;
 }
 
 .price-heat-head,
@@ -970,6 +979,7 @@ h3 {
   .concern-card-grid,
   .buyer-card-grid,
   .scene-layout,
+  .scene-list,
   .unmet-grid,
   .method-grid {
     grid-template-columns: 1fr;
