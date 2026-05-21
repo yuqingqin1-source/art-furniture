@@ -179,6 +179,7 @@ PURCHASE_CONCERN_PATTERNS = {
 PRODUCT_PRICES = {
     "Aaisha Faux Leather Armchair": 359.99,
     "Abdullahi Glass Top End Table": 740.04,
+    "Beaumont Lounge Chair": 2100.00,
     "Desiree 22.5_ Wide Boucle Fabric Accent Chair": 449.99,
     "Elivra Iron Top End Table": 319.99,
     "FL_Y 1 - Light Single Pendant": 444.00,
@@ -186,6 +187,7 @@ PRODUCT_PRICES = {
     "Kloud 1 - Light Single Globe Pendant": 618.44,
     "Lampert Sofa": 4100.00,
     "Lize Upholstered Swivel Barrel Chair": 1136.85,
+    "Lodge Chair": 2209.00,
     "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)": 1032.00,
     "Masters 18.11'' H Stacking Armchair (Set of 2)": 728.00,
     "Max Beam End Table": 412.00,
@@ -589,6 +591,11 @@ def main() -> None:
     ]
     priced_review_count = int(tagged["product_price"].notna().sum())
     priced_product_count = int(len(PRODUCT_PRICES))
+    total_product_count = int(tagged["product_name"].nunique())
+    if priced_product_count >= total_product_count:
+        price_note = f"价格基于用户提供的真实商品价格；当前覆盖全部 {priced_product_count} 个产品、{priced_review_count} 条评论。"
+    else:
+        price_note = f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。"
 
     buyer_assignments = []
     for idx, row in tagged.iterrows():
@@ -707,7 +714,7 @@ def main() -> None:
         "unmetNeeds": unmet_needs,
         "purchaseConcerns": purchase_concerns,
         "priceFunction": {
-            "note": f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。",
+            "note": price_note,
             "columns": list(PRICE_FUNCTION_PATTERNS.keys()),
             "rows": price_function_heatmap,
             "productBands": product_price_bands,

@@ -1886,7 +1886,7 @@ window.VOC_DATA = {
     }
   ],
   "priceFunction": {
-    "note": "价格基于用户提供的真实商品价格；当前覆盖 23 个产品、962 条评论，未提供价格的产品暂不纳入本热力图。",
+    "note": "价格基于用户提供的真实商品价格；当前覆盖全部 25 个产品、986 条评论。",
     "columns": [
       "外观审美",
       "情绪价值",
@@ -2105,52 +2105,52 @@ window.VOC_DATA = {
       },
       {
         "priceBand": ">$2000",
-        "reviewCount": 22,
+        "reviewCount": 46,
         "cells": [
           {
             "name": "外观审美",
-            "value": 0.7273,
-            "count": 16
+            "value": 0.6739,
+            "count": 31
           },
           {
             "name": "情绪价值",
-            "value": 0.3636,
-            "count": 8
+            "value": 0.3478,
+            "count": 16
           },
           {
             "name": "收藏感/独特性",
-            "value": 0.0909,
+            "value": 0.0435,
             "count": 2
           },
           {
             "name": "实用性/舒适性",
-            "value": 0.4091,
-            "count": 9
+            "value": 0.4348,
+            "count": 20
           },
           {
             "name": "价格价值感",
-            "value": 0.0909,
-            "count": 2
+            "value": 0.1087,
+            "count": 5
           },
           {
             "name": "可搭配性",
-            "value": 0.3636,
-            "count": 8
+            "value": 0.2826,
+            "count": 13
           },
           {
             "name": "尺寸与空间适配",
-            "value": 0.3182,
-            "count": 7
+            "value": 0.3043,
+            "count": 14
           },
           {
             "name": "材质",
-            "value": 0.1364,
-            "count": 3
+            "value": 0.1957,
+            "count": 9
           },
           {
             "name": "做工质感",
-            "value": 0.3182,
-            "count": 7
+            "value": 0.2391,
+            "count": 11
           }
         ]
       }
@@ -2265,6 +2265,16 @@ window.VOC_DATA = {
         "product": "Upholstered Counter Stool with Metal Frame (Set of 2)",
         "price": 1652.0,
         "priceBand": "$1200-2000"
+      },
+      {
+        "product": "Beaumont Lounge Chair",
+        "price": 2100.0,
+        "priceBand": ">$2000"
+      },
+      {
+        "product": "Lodge Chair",
+        "price": 2209.0,
+        "priceBand": ">$2000"
       },
       {
         "product": "Lampert Sofa",
