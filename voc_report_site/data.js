@@ -1886,7 +1886,7 @@ window.VOC_DATA = {
     }
   ],
   "priceFunction": {
-    "note": "价格基于用户提供的真实商品价格；当前覆盖全部 25 个产品、986 条评论。",
+    "note": "价格基于用户提供的真实商品价格；当前覆盖全部 25 个产品、986 条评论。背景深浅表示提及频率，格内百分比表示正向满意度。",
     "columns": [
       "外观审美",
       "情绪价值",
@@ -1906,47 +1906,65 @@ window.VOC_DATA = {
           {
             "name": "外观审美",
             "value": 0.4621,
-            "count": 61
+            "count": 61,
+            "positiveCount": 57,
+            "satisfaction": 0.9344
           },
           {
             "name": "情绪价值",
             "value": 0.4545,
-            "count": 60
+            "count": 60,
+            "positiveCount": 59,
+            "satisfaction": 0.9833
           },
           {
             "name": "收藏感/独特性",
             "value": 0.2197,
-            "count": 29
+            "count": 29,
+            "positiveCount": 29,
+            "satisfaction": 1.0
           },
           {
             "name": "实用性/舒适性",
             "value": 0.0076,
-            "count": 1
+            "count": 1,
+            "positiveCount": 1,
+            "satisfaction": 1.0
           },
           {
             "name": "价格价值感",
             "value": 0.0682,
-            "count": 9
+            "count": 9,
+            "positiveCount": 8,
+            "satisfaction": 0.8889
           },
           {
             "name": "可搭配性",
             "value": 0.2424,
-            "count": 32
+            "count": 32,
+            "positiveCount": 31,
+            "satisfaction": 0.9688
           },
           {
             "name": "尺寸与空间适配",
             "value": 0.3636,
-            "count": 48
+            "count": 48,
+            "positiveCount": 41,
+            "satisfaction": 0.8542
           },
           {
             "name": "材质",
             "value": 0.2121,
-            "count": 28
+            "count": 28,
+            "positiveCount": 21,
+            "satisfaction": 0.75
           },
           {
             "name": "做工质感",
             "value": 0.4394,
-            "count": 58
+            "count": 58,
+            "positiveCount": 50,
+            "satisfaction": 0.8621
           }
         ]
       },
@@ -1957,47 +1975,65 @@ window.VOC_DATA = {
           {
             "name": "外观审美",
             "value": 0.5128,
-            "count": 200
+            "count": 200,
+            "positiveCount": 190,
+            "satisfaction": 0.95
           },
           {
             "name": "情绪价值",
             "value": 0.4795,
-            "count": 187
+            "count": 187,
+            "positiveCount": 184,
+            "satisfaction": 0.984
           },
           {
             "name": "收藏感/独特性",
             "value": 0.1231,
-            "count": 48
+            "count": 48,
+            "positiveCount": 48,
+            "satisfaction": 1.0
           },
           {
             "name": "实用性/舒适性",
             "value": 0.2744,
-            "count": 107
+            "count": 107,
+            "positiveCount": 104,
+            "satisfaction": 0.972
           },
           {
             "name": "价格价值感",
             "value": 0.1308,
-            "count": 51
+            "count": 51,
+            "positiveCount": 46,
+            "satisfaction": 0.902
           },
           {
             "name": "可搭配性",
             "value": 0.2077,
-            "count": 81
+            "count": 81,
+            "positiveCount": 75,
+            "satisfaction": 0.9259
           },
           {
             "name": "尺寸与空间适配",
             "value": 0.2385,
-            "count": 93
+            "count": 93,
+            "positiveCount": 85,
+            "satisfaction": 0.914
           },
           {
             "name": "材质",
             "value": 0.0718,
-            "count": 28
+            "count": 28,
+            "positiveCount": 24,
+            "satisfaction": 0.8571
           },
           {
             "name": "做工质感",
             "value": 0.2897,
-            "count": 113
+            "count": 113,
+            "positiveCount": 106,
+            "satisfaction": 0.9381
           }
         ]
       },
@@ -2008,47 +2044,65 @@ window.VOC_DATA = {
           {
             "name": "外观审美",
             "value": 0.5434,
-            "count": 169
+            "count": 169,
+            "positiveCount": 161,
+            "satisfaction": 0.9527
           },
           {
             "name": "情绪价值",
             "value": 0.4405,
-            "count": 137
+            "count": 137,
+            "positiveCount": 133,
+            "satisfaction": 0.9708
           },
           {
             "name": "收藏感/独特性",
             "value": 0.1929,
-            "count": 60
+            "count": 60,
+            "positiveCount": 58,
+            "satisfaction": 0.9667
           },
           {
             "name": "实用性/舒适性",
             "value": 0.2283,
-            "count": 71
+            "count": 71,
+            "positiveCount": 65,
+            "satisfaction": 0.9155
           },
           {
             "name": "价格价值感",
             "value": 0.1479,
-            "count": 46
+            "count": 46,
+            "positiveCount": 43,
+            "satisfaction": 0.9348
           },
           {
             "name": "可搭配性",
             "value": 0.2347,
-            "count": 73
+            "count": 73,
+            "positiveCount": 72,
+            "satisfaction": 0.9863
           },
           {
             "name": "尺寸与空间适配",
             "value": 0.2797,
-            "count": 87
+            "count": 87,
+            "positiveCount": 83,
+            "satisfaction": 0.954
           },
           {
             "name": "材质",
             "value": 0.0547,
-            "count": 17
+            "count": 17,
+            "positiveCount": 14,
+            "satisfaction": 0.8235
           },
           {
             "name": "做工质感",
             "value": 0.2058,
-            "count": 64
+            "count": 64,
+            "positiveCount": 61,
+            "satisfaction": 0.9531
           }
         ]
       },
@@ -2059,47 +2113,65 @@ window.VOC_DATA = {
           {
             "name": "外观审美",
             "value": 0.4673,
-            "count": 50
+            "count": 50,
+            "positiveCount": 49,
+            "satisfaction": 0.98
           },
           {
             "name": "情绪价值",
             "value": 0.4673,
-            "count": 50
+            "count": 50,
+            "positiveCount": 49,
+            "satisfaction": 0.98
           },
           {
             "name": "收藏感/独特性",
             "value": 0.0748,
-            "count": 8
+            "count": 8,
+            "positiveCount": 8,
+            "satisfaction": 1.0
           },
           {
             "name": "实用性/舒适性",
             "value": 0.1495,
-            "count": 16
+            "count": 16,
+            "positiveCount": 16,
+            "satisfaction": 1.0
           },
           {
             "name": "价格价值感",
             "value": 0.1682,
-            "count": 18
+            "count": 18,
+            "positiveCount": 16,
+            "satisfaction": 0.8889
           },
           {
             "name": "可搭配性",
             "value": 0.1869,
-            "count": 20
+            "count": 20,
+            "positiveCount": 20,
+            "satisfaction": 1.0
           },
           {
             "name": "尺寸与空间适配",
             "value": 0.2617,
-            "count": 28
+            "count": 28,
+            "positiveCount": 28,
+            "satisfaction": 1.0
           },
           {
             "name": "材质",
             "value": 0.0935,
-            "count": 10
+            "count": 10,
+            "positiveCount": 10,
+            "satisfaction": 1.0
           },
           {
             "name": "做工质感",
             "value": 0.243,
-            "count": 26
+            "count": 26,
+            "positiveCount": 23,
+            "satisfaction": 0.8846
           }
         ]
       },
@@ -2110,47 +2182,65 @@ window.VOC_DATA = {
           {
             "name": "外观审美",
             "value": 0.6739,
-            "count": 31
+            "count": 31,
+            "positiveCount": 28,
+            "satisfaction": 0.9032
           },
           {
             "name": "情绪价值",
             "value": 0.3478,
-            "count": 16
+            "count": 16,
+            "positiveCount": 16,
+            "satisfaction": 1.0
           },
           {
             "name": "收藏感/独特性",
             "value": 0.0435,
-            "count": 2
+            "count": 2,
+            "positiveCount": 2,
+            "satisfaction": 1.0
           },
           {
             "name": "实用性/舒适性",
             "value": 0.4348,
-            "count": 20
+            "count": 20,
+            "positiveCount": 20,
+            "satisfaction": 1.0
           },
           {
             "name": "价格价值感",
             "value": 0.1087,
-            "count": 5
+            "count": 5,
+            "positiveCount": 5,
+            "satisfaction": 1.0
           },
           {
             "name": "可搭配性",
             "value": 0.2826,
-            "count": 13
+            "count": 13,
+            "positiveCount": 13,
+            "satisfaction": 1.0
           },
           {
             "name": "尺寸与空间适配",
             "value": 0.3043,
-            "count": 14
+            "count": 14,
+            "positiveCount": 12,
+            "satisfaction": 0.8571
           },
           {
             "name": "材质",
             "value": 0.1957,
-            "count": 9
+            "count": 9,
+            "positiveCount": 8,
+            "satisfaction": 0.8889
           },
           {
             "name": "做工质感",
             "value": 0.2391,
-            "count": 11
+            "count": 11,
+            "positiveCount": 11,
+            "satisfaction": 1.0
           }
         ]
       }

@@ -562,20 +562,28 @@ def main() -> None:
         for function_name, patterns in PRICE_FUNCTION_PATTERNS.items():
             if denom:
                 matches = 0
+                positive_matches = 0
                 for _, row in band_subset.iterrows():
                     tag_text = clean(row["voc_tags"])
                     review_text = clean(row["review_text"]).lower()
                     if any(pattern in tag_text for pattern in patterns) or any(pattern in review_text for pattern in patterns):
                         matches += 1
+                        if row["sentiment"] == "正向":
+                            positive_matches += 1
                 value = round(matches / denom, 4)
+                satisfaction = round(positive_matches / matches, 4) if matches else 0
             else:
                 matches = 0
+                positive_matches = 0
                 value = 0
+                satisfaction = 0
             cells.append(
                 {
                     "name": function_name,
                     "value": value,
                     "count": int(matches),
+                    "positiveCount": int(positive_matches),
+                    "satisfaction": satisfaction,
                 }
             )
         price_function_heatmap.append(
@@ -593,9 +601,9 @@ def main() -> None:
     priced_product_count = int(len(PRODUCT_PRICES))
     total_product_count = int(tagged["product_name"].nunique())
     if priced_product_count >= total_product_count:
-        price_note = f"价格基于用户提供的真实商品价格；当前覆盖全部 {priced_product_count} 个产品、{priced_review_count} 条评论。"
+        price_note = f"价格基于用户提供的真实商品价格；当前覆盖全部 {priced_product_count} 个产品、{priced_review_count} 条评论。背景深浅表示提及频率，格内百分比表示正向满意度。"
     else:
-        price_note = f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。"
+        price_note = f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。背景深浅表示提及频率，格内百分比表示正向满意度。"
 
     buyer_assignments = []
     for idx, row in tagged.iterrows():
