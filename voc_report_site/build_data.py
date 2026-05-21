@@ -176,35 +176,43 @@ PURCHASE_CONCERN_PATTERNS = {
     },
 }
 
-PRODUCT_PRICE_BANDS = {
-    "Aaisha Faux Leather Armchair": "$300-600",
-    "Abdullahi Glass Top End Table": "$120-300",
-    "Beaumont Lounge Chair": "$600-1200",
-    "Desiree 22.5_ Wide Boucle Fabric Accent Chair": "$120-300",
-    "Elivra Iron Top End Table": "$120-300",
-    "FL_Y 1 - Light Single Pendant": "$300-600",
-    "Hot Mesh Lounge Chair": ">$1200",
-    "Kloud 1 - Light Single Globe Pendant": "$120-300",
-    "Lampert Sofa": "$600-1200",
-    "Lize Upholstered Swivel Barrel Chair": "$300-600",
-    "Lodge Chair": "$600-1200",
-    "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)": "$600-1200",
-    "Masters 18.11'' H Stacking Armchair (Set of 2)": "$600-1200",
-    "Max Beam End Table": "$300-600",
-    "Meurice 42 - Light Dimmable Modern Linear Chandelier": "$600-1200",
-    "Modern Table": "$120-300",
-    "Modway Vivi 30.5 Wide": "$300-600",
-    "Raechell Solid Wood End Table": "$300-600",
-    "Randal Chenille Accent Chair": "$120-300",
-    "Rider Dining Chair": "$300-600",
-    "Rider Upholstered Side Chair": "$300-600",
-    "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)": "$120-300",
-    "Serpent End Table": "$600-1200",
-    "Upholstered Counter Stool with Metal Frame (Set of 2)": "$300-600",
-    "Ventana 12 - Light Tiered Chandelier": ">$1200",
+PRODUCT_PRICES = {
+    "Aaisha Faux Leather Armchair": 359.99,
+    "Abdullahi Glass Top End Table": 740.04,
+    "FL_Y 1 - Light Single Pendant": 444.00,
+    "Hot Mesh Lounge Chair": 395.00,
+    "Kloud 1 - Light Single Globe Pendant": 618.44,
+    "Lampert Sofa": 4100.00,
+    "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)": 1032.00,
+    "Masters 18.11'' H Stacking Armchair (Set of 2)": 728.00,
+    "Max Beam End Table": 412.00,
+    "Raechell Solid Wood End Table": 266.99,
+    "Randal Chenille Accent Chair": 519.99,
+    "Rider Dining Chair": 995.00,
+    "Rider Upholstered Side Chair": 1500.00,
+    "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)": 137.99,
+    "Serpent End Table": 429.44,
+    "Upholstered Counter Stool with Metal Frame (Set of 2)": 1652.00,
+    "Ventana 12 - Light Tiered Chandelier": 1495.00,
 }
 
-PRICE_BAND_ORDER = ["$120-300", "$300-600", "$600-1200", ">$1200"]
+PRICE_BANDS = [
+    ("<$300", 0, 300),
+    ("$300-600", 300, 600),
+    ("$600-1200", 600, 1200),
+    ("$1200-2000", 1200, 2000),
+    (">$2000", 2000, float("inf")),
+]
+PRICE_BAND_ORDER = [band[0] for band in PRICE_BANDS]
+
+
+def price_to_band(price: float | int | None) -> str:
+    if price is None or pd.isna(price):
+        return "未定价"
+    for label, low, high in PRICE_BANDS:
+        if low <= float(price) < high:
+            return label
+    return "未定价"
 
 PRICE_FUNCTION_PATTERNS = {
     "外观审美": ["外观审美"],
@@ -536,7 +544,8 @@ def main() -> None:
     for item in purchase_concerns:
         item["weight"] = round(item["mentions"] / max_concern_mentions, 4)
 
-    tagged["price_band"] = tagged["product_name"].map(PRODUCT_PRICE_BANDS).fillna("未定价")
+    tagged["product_price"] = tagged["product_name"].map(PRODUCT_PRICES)
+    tagged["price_band"] = tagged["product_price"].map(price_to_band)
     price_function_heatmap = []
     for band in PRICE_BAND_ORDER:
         band_subset = tagged[tagged["price_band"] == band].copy()
@@ -569,9 +578,11 @@ def main() -> None:
             }
         )
     product_price_bands = [
-        {"product": product, "priceBand": band}
-        for product, band in sorted(PRODUCT_PRICE_BANDS.items(), key=lambda item: (PRICE_BAND_ORDER.index(item[1]) if item[1] in PRICE_BAND_ORDER else 99, item[0]))
+        {"product": product, "price": price, "priceBand": price_to_band(price)}
+        for product, price in sorted(PRODUCT_PRICES.items(), key=lambda item: (PRICE_BAND_ORDER.index(price_to_band(item[1])), item[1], item[0]))
     ]
+    priced_review_count = int(tagged["product_price"].notna().sum())
+    priced_product_count = int(len(PRODUCT_PRICES))
 
     buyer_assignments = []
     for idx, row in tagged.iterrows():
@@ -690,7 +701,7 @@ def main() -> None:
         "unmetNeeds": unmet_needs,
         "purchaseConcerns": purchase_concerns,
         "priceFunction": {
-            "note": "源 Excel 未提供真实价格字段；当前价格段为产品级估算分层，用于观察不同价格带的功能关注差异，建议后续接入商品价格表校准。",
+            "note": f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。",
             "columns": list(PRICE_FUNCTION_PATTERNS.keys()),
             "rows": price_function_heatmap,
             "productBands": product_price_bands,

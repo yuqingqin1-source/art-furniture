@@ -1886,7 +1886,7 @@ window.VOC_DATA = {
     }
   ],
   "priceFunction": {
-    "note": "源 Excel 未提供真实价格字段；当前价格段为产品级估算分层，用于观察不同价格带的功能关注差异，建议后续接入商品价格表校准。",
+    "note": "价格基于用户提供的真实商品价格；当前覆盖 17 个产品、770 条评论，未提供价格的产品暂不纳入本热力图。",
     "columns": [
       "外观审美",
       "情绪价值",
@@ -1900,310 +1900,346 @@ window.VOC_DATA = {
     ],
     "rows": [
       {
-        "priceBand": "$120-300",
-        "reviewCount": 259,
+        "priceBand": "<$300",
+        "reviewCount": 132,
         "cells": [
           {
             "name": "外观审美",
-            "value": 0.5521,
-            "count": 143
+            "value": 0.4621,
+            "count": 61
           },
           {
             "name": "情绪价值",
-            "value": 0.4363,
-            "count": 113
+            "value": 0.4545,
+            "count": 60
           },
           {
             "name": "收藏感/独特性",
-            "value": 0.1429,
-            "count": 37
+            "value": 0.2197,
+            "count": 29
           },
           {
             "name": "实用性/舒适性",
-            "value": 0.0849,
-            "count": 22
+            "value": 0.0076,
+            "count": 1
           },
           {
             "name": "价格价值感",
-            "value": 0.1158,
-            "count": 30
+            "value": 0.0682,
+            "count": 9
           },
           {
             "name": "可搭配性",
-            "value": 0.2085,
-            "count": 54
+            "value": 0.2424,
+            "count": 32
           },
           {
             "name": "尺寸与空间适配",
-            "value": 0.3205,
-            "count": 83
+            "value": 0.3636,
+            "count": 48
           },
           {
             "name": "材质",
-            "value": 0.0618,
-            "count": 16
+            "value": 0.2121,
+            "count": 28
           },
           {
             "name": "做工质感",
-            "value": 0.2973,
-            "count": 77
+            "value": 0.4394,
+            "count": 58
           }
         ]
       },
       {
         "priceBand": "$300-600",
-        "reviewCount": 386,
+        "reviewCount": 280,
         "cells": [
           {
             "name": "外观审美",
-            "value": 0.5052,
-            "count": 195
+            "value": 0.5393,
+            "count": 151
           },
           {
             "name": "情绪价值",
-            "value": 0.4896,
-            "count": 189
+            "value": 0.4857,
+            "count": 136
           },
           {
             "name": "收藏感/独特性",
-            "value": 0.1554,
-            "count": 60
+            "value": 0.1143,
+            "count": 32
           },
           {
             "name": "实用性/舒适性",
-            "value": 0.1943,
-            "count": 75
-          },
-          {
-            "name": "价格价值感",
-            "value": 0.114,
-            "count": 44
-          },
-          {
-            "name": "可搭配性",
-            "value": 0.1969,
-            "count": 76
-          },
-          {
-            "name": "尺寸与空间适配",
-            "value": 0.2332,
+            "value": 0.3214,
             "count": 90
           },
           {
+            "name": "价格价值感",
+            "value": 0.1464,
+            "count": 41
+          },
+          {
+            "name": "可搭配性",
+            "value": 0.1929,
+            "count": 54
+          },
+          {
+            "name": "尺寸与空间适配",
+            "value": 0.2321,
+            "count": 65
+          },
+          {
             "name": "材质",
-            "value": 0.1295,
-            "count": 50
+            "value": 0.0714,
+            "count": 20
           },
           {
             "name": "做工质感",
-            "value": 0.3083,
-            "count": 119
+            "value": 0.2393,
+            "count": 67
           }
         ]
       },
       {
         "priceBand": "$600-1200",
-        "reviewCount": 260,
+        "reviewCount": 279,
         "cells": [
           {
             "name": "外观审美",
-            "value": 0.4846,
-            "count": 126
+            "value": 0.552,
+            "count": 154
           },
           {
             "name": "情绪价值",
-            "value": 0.4269,
-            "count": 111
+            "value": 0.4409,
+            "count": 123
           },
           {
             "name": "收藏感/独特性",
-            "value": 0.1731,
-            "count": 45
+            "value": 0.1971,
+            "count": 55
           },
           {
             "name": "实用性/舒适性",
-            "value": 0.2885,
-            "count": 75
+            "value": 0.2186,
+            "count": 61
           },
           {
             "name": "价格价值感",
-            "value": 0.1731,
-            "count": 45
+            "value": 0.1505,
+            "count": 42
           },
           {
             "name": "可搭配性",
-            "value": 0.3,
-            "count": 78
+            "value": 0.2473,
+            "count": 69
           },
           {
             "name": "尺寸与空间适配",
-            "value": 0.3231,
-            "count": 84
+            "value": 0.2867,
+            "count": 80
           },
           {
             "name": "材质",
-            "value": 0.0846,
-            "count": 22
+            "value": 0.0538,
+            "count": 15
           },
           {
             "name": "做工质感",
-            "value": 0.2192,
-            "count": 57
+            "value": 0.2007,
+            "count": 56
           }
         ]
       },
       {
-        "priceBand": ">$1200",
-        "reviewCount": 81,
+        "priceBand": "$1200-2000",
+        "reviewCount": 57,
         "cells": [
           {
             "name": "外观审美",
-            "value": 0.5802,
-            "count": 47
+            "value": 0.4561,
+            "count": 26
           },
           {
             "name": "情绪价值",
-            "value": 0.4568,
-            "count": 37
+            "value": 0.5088,
+            "count": 29
           },
           {
             "name": "收藏感/独特性",
-            "value": 0.0617,
-            "count": 5
+            "value": 0.0526,
+            "count": 3
           },
           {
             "name": "实用性/舒适性",
-            "value": 0.5309,
-            "count": 43
+            "value": 0.2456,
+            "count": 14
           },
           {
             "name": "价格价值感",
-            "value": 0.1235,
-            "count": 10
+            "value": 0.0877,
+            "count": 5
           },
           {
             "name": "可搭配性",
-            "value": 0.1358,
-            "count": 11
+            "value": 0.1053,
+            "count": 6
           },
           {
             "name": "尺寸与空间适配",
-            "value": 0.1605,
-            "count": 13
+            "value": 0.1754,
+            "count": 10
           },
           {
             "name": "材质",
-            "value": 0.0494,
-            "count": 4
+            "value": 0.0877,
+            "count": 5
           },
           {
             "name": "做工质感",
-            "value": 0.2346,
-            "count": 19
+            "value": 0.3158,
+            "count": 18
+          }
+        ]
+      },
+      {
+        "priceBand": ">$2000",
+        "reviewCount": 22,
+        "cells": [
+          {
+            "name": "外观审美",
+            "value": 0.7273,
+            "count": 16
+          },
+          {
+            "name": "情绪价值",
+            "value": 0.3636,
+            "count": 8
+          },
+          {
+            "name": "收藏感/独特性",
+            "value": 0.0909,
+            "count": 2
+          },
+          {
+            "name": "实用性/舒适性",
+            "value": 0.4091,
+            "count": 9
+          },
+          {
+            "name": "价格价值感",
+            "value": 0.0909,
+            "count": 2
+          },
+          {
+            "name": "可搭配性",
+            "value": 0.3636,
+            "count": 8
+          },
+          {
+            "name": "尺寸与空间适配",
+            "value": 0.3182,
+            "count": 7
+          },
+          {
+            "name": "材质",
+            "value": 0.1364,
+            "count": 3
+          },
+          {
+            "name": "做工质感",
+            "value": 0.3182,
+            "count": 7
           }
         ]
       }
     ],
     "productBands": [
       {
-        "product": "Abdullahi Glass Top End Table",
-        "priceBand": "$120-300"
-      },
-      {
-        "product": "Desiree 22.5_ Wide Boucle Fabric Accent Chair",
-        "priceBand": "$120-300"
-      },
-      {
-        "product": "Elivra Iron Top End Table",
-        "priceBand": "$120-300"
-      },
-      {
-        "product": "Kloud 1 - Light Single Globe Pendant",
-        "priceBand": "$120-300"
-      },
-      {
-        "product": "Modern Table",
-        "priceBand": "$120-300"
-      },
-      {
-        "product": "Randal Chenille Accent Chair",
-        "priceBand": "$120-300"
-      },
-      {
         "product": "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)",
-        "priceBand": "$120-300"
+        "price": 137.99,
+        "priceBand": "<$300"
+      },
+      {
+        "product": "Raechell Solid Wood End Table",
+        "price": 266.99,
+        "priceBand": "<$300"
       },
       {
         "product": "Aaisha Faux Leather Armchair",
+        "price": 359.99,
         "priceBand": "$300-600"
       },
       {
-        "product": "FL_Y 1 - Light Single Pendant",
-        "priceBand": "$300-600"
-      },
-      {
-        "product": "Lize Upholstered Swivel Barrel Chair",
+        "product": "Hot Mesh Lounge Chair",
+        "price": 395.0,
         "priceBand": "$300-600"
       },
       {
         "product": "Max Beam End Table",
+        "price": 412.0,
         "priceBand": "$300-600"
       },
       {
-        "product": "Modway Vivi 30.5 Wide",
+        "product": "Serpent End Table",
+        "price": 429.44,
         "priceBand": "$300-600"
       },
       {
-        "product": "Raechell Solid Wood End Table",
+        "product": "FL_Y 1 - Light Single Pendant",
+        "price": 444.0,
         "priceBand": "$300-600"
       },
       {
-        "product": "Rider Dining Chair",
+        "product": "Randal Chenille Accent Chair",
+        "price": 519.99,
         "priceBand": "$300-600"
       },
       {
-        "product": "Rider Upholstered Side Chair",
-        "priceBand": "$300-600"
-      },
-      {
-        "product": "Upholstered Counter Stool with Metal Frame (Set of 2)",
-        "priceBand": "$300-600"
-      },
-      {
-        "product": "Beaumont Lounge Chair",
-        "priceBand": "$600-1200"
-      },
-      {
-        "product": "Lampert Sofa",
-        "priceBand": "$600-1200"
-      },
-      {
-        "product": "Lodge Chair",
-        "priceBand": "$600-1200"
-      },
-      {
-        "product": "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)",
+        "product": "Kloud 1 - Light Single Globe Pendant",
+        "price": 618.44,
         "priceBand": "$600-1200"
       },
       {
         "product": "Masters 18.11'' H Stacking Armchair (Set of 2)",
+        "price": 728.0,
         "priceBand": "$600-1200"
       },
       {
-        "product": "Meurice 42 - Light Dimmable Modern Linear Chandelier",
+        "product": "Abdullahi Glass Top End Table",
+        "price": 740.04,
         "priceBand": "$600-1200"
       },
       {
-        "product": "Serpent End Table",
+        "product": "Rider Dining Chair",
+        "price": 995.0,
         "priceBand": "$600-1200"
       },
       {
-        "product": "Hot Mesh Lounge Chair",
-        "priceBand": ">$1200"
+        "product": "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)",
+        "price": 1032.0,
+        "priceBand": "$600-1200"
       },
       {
         "product": "Ventana 12 - Light Tiered Chandelier",
-        "priceBand": ">$1200"
+        "price": 1495.0,
+        "priceBand": "$1200-2000"
+      },
+      {
+        "product": "Rider Upholstered Side Chair",
+        "price": 1500.0,
+        "priceBand": "$1200-2000"
+      },
+      {
+        "product": "Upholstered Counter Stool with Metal Frame (Set of 2)",
+        "price": 1652.0,
+        "priceBand": "$1200-2000"
+      },
+      {
+        "product": "Lampert Sofa",
+        "price": 4100.0,
+        "priceBand": ">$2000"
       }
     ]
   },
