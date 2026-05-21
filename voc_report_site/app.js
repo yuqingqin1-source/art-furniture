@@ -4,6 +4,7 @@ const pct = (value) => `${(value * 100).toFixed(1)}%`;
 const short = (text, limit = 34) => (text.length > limit ? `${text.slice(0, limit - 1)}...` : text);
 const buyerColors = ["#1677ff", "#13c2c2", "#fa8c16", "#722ed1", "#52c41a", "#c28a16", "#eb2f96", "#2f9bbd"];
 const sceneColors = ["#1677ff", "#01c6b2", "#fa8c16", "#722ed1", "#52c41a", "#faad14", "#eb2f96", "#2f9bbd"];
+const concernColors = ["#1677ff", "#13c2c2", "#fa8c16", "#722ed1", "#52c41a", "#c28a16", "#eb2f96", "#2f9bbd", "#fa541c", "#2f54eb"];
 
 document.getElementById("subtitle").textContent = data.meta.subtitle;
 document.getElementById("metaLine").textContent =
@@ -202,6 +203,42 @@ function renderBuyerCards() {
   `).join("");
 }
 
+function renderPurchaseConcerns() {
+  const concerns = data.purchaseConcerns || [];
+  const positions = [
+    [47, 58], [30, 34], [66, 34], [70, 68], [26, 70],
+    [50, 24], [78, 50], [18, 50], [58, 80], [38, 82],
+  ];
+  const max = Math.max(...concerns.map((item) => item.mentions), 1);
+  document.getElementById("concernLegend").innerHTML = concerns.map((item, index) => `
+    <span class="legend-item"><i class="legend-dot" style="background:${concernColors[index % concernColors.length]}"></i>${item.name}</span>
+  `).join("");
+  document.getElementById("concernWordCloud").innerHTML = concerns.map((item, index) => {
+    const size = 18 + (item.mentions / max) * 40;
+    const pos = positions[index % positions.length];
+    return `
+      <span class="cloud-word" style="left:${pos[0]}%;top:${pos[1]}%;font-size:${size}px;color:${concernColors[index % concernColors.length]}" title="${item.mentions} 条 · ${item.avgRating} 分">
+        ${item.name}
+      </span>
+    `;
+  }).join("");
+  document.getElementById("concernCards").innerHTML = concerns.map((item, index) => `
+    <article class="concern-card">
+      <div class="concern-card-head">
+        <div class="concern-name">${item.name}</div>
+        <span class="pill" style="color:${concernColors[index % concernColors.length]};background:rgba(22,119,255,.08)">${item.mentions} 条</span>
+      </div>
+      <div class="tag-metrics">
+        <div><strong>${item.avgRating}</strong><span>均分</span></div>
+        <div><strong>${pct(item.share)}</strong><span>占比</span></div>
+        <div><strong>${pct(item.negativeShare)}</strong><span>负向</span></div>
+      </div>
+      <div class="concern-desc">${item.description}</div>
+      <div class="keyword-line">${item.keywords.join(" / ")}</div>
+    </article>
+  `).join("");
+}
+
 function renderBuyerSegments() {
   renderBuyerLegend("buyerLegend");
   renderBuyerLegend("buyerTrendLegend");
@@ -341,6 +378,7 @@ sections.forEach((section) => observer.observe(section));
 renderKpis();
 renderCharts();
 taxonomyCards();
+renderPurchaseConcerns();
 renderBuyerSegments();
 renderScenes();
 renderUnmetNeeds();

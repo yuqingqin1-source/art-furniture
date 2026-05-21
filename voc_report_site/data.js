@@ -1543,6 +1543,348 @@ window.VOC_DATA = {
       ]
     }
   ],
+  "purchaseConcerns": [
+    {
+      "name": "外观设计",
+      "mentions": 538,
+      "share": 0.5456,
+      "avgRating": 4.75,
+      "negativeCount": 17,
+      "negativeShare": 0.0316,
+      "description": "购买前最先判断是否好看、是否符合空间风格、颜色是否能成为视觉亮点。",
+      "keywords": [
+        "beautiful",
+        "gorgeous",
+        "stylish",
+        "design",
+        "modern",
+        "sleek",
+        "look",
+        "looks"
+      ],
+      "evidence": [
+        {
+          "product": "Elivra Iron Top End Table",
+          "rating": "5.0",
+          "date": "2026-05-20",
+          "text": "This is table is an eye stopper. It looks very unique and unusual and at the same time very functional"
+        },
+        {
+          "product": "Lize Upholstered Swivel Barrel Chair",
+          "rating": "5.0",
+          "date": "2026-05-20",
+          "text": "Beautiful and delicate craftmanship"
+        }
+      ],
+      "weight": 1.0
+    },
+    {
+      "name": "尺寸与空间适配",
+      "mentions": 273,
+      "share": 0.2769,
+      "avgRating": 4.7,
+      "negativeCount": 10,
+      "negativeShare": 0.0366,
+      "description": "关注尺寸、高度、宽度和摆放空间，担心到手后比例不对或放不下。",
+      "keywords": [
+        "size",
+        "small",
+        "large",
+        "wide",
+        "short",
+        "height",
+        "fit",
+        "fits"
+      ],
+      "evidence": [
+        {
+          "product": "Masters 18.11'' H Stacking Armchair (Set of 2)",
+          "rating": "5.0",
+          "date": "2026-04-21",
+          "text": "absolutely love the Masters Armchair by Kartell. The design is stunning—modern, sculptural, and instantly elevates the entire balcony. They’re surprisingly sturdy with a solid weight that feels high-quality wi..."
+        },
+        {
+          "product": "Randal Chenille Accent Chair",
+          "rating": "5.0",
+          "date": "2026-04-18",
+          "text": "I wasn’t sure what to expect upon arrival, but this chair has exceeded my expectations. It’s elegant, stylish and very comfortable. It was the perfect addition to my living room, so I purchased a second chair...."
+        }
+      ],
+      "weight": 0.5074
+    },
+    {
+      "name": "质量与稳固性",
+      "mentions": 263,
+      "share": 0.2667,
+      "avgRating": 4.74,
+      "negativeCount": 12,
+      "negativeShare": 0.0456,
+      "description": "关注结构是否稳、做工是否可靠、是否耐用，尤其是椅子和大件家具。",
+      "keywords": [
+        "quality",
+        "sturdy",
+        "solid",
+        "durable",
+        "well made",
+        "heavy",
+        "wobbly",
+        "fragile"
+      ],
+      "evidence": [
+        {
+          "product": "Raechell Solid Wood End Table",
+          "rating": "5.0",
+          "date": "2026-05-02",
+          "text": "Heavy solid piece that feels like great value for cost"
+        },
+        {
+          "product": "Masters 18.11'' H Stacking Armchair (Set of 2)",
+          "rating": "5.0",
+          "date": "2026-04-21",
+          "text": "absolutely love the Masters Armchair by Kartell. The design is stunning—modern, sculptural, and instantly elevates the entire balcony. They’re surprisingly sturdy with a solid weight that feels high-quality wi..."
+        }
+      ],
+      "weight": 0.4888
+    },
+    {
+      "name": "舒适度与实用性",
+      "mentions": 222,
+      "share": 0.2252,
+      "avgRating": 4.75,
+      "negativeCount": 9,
+      "negativeShare": 0.0405,
+      "description": "既要艺术造型，也要能坐、能放、能日常使用。",
+      "keywords": [
+        "comfortable",
+        "comfy",
+        "sit",
+        "seat",
+        "firm",
+        "soft",
+        "functional",
+        "versatile"
+      ],
+      "evidence": [
+        {
+          "product": "Elivra Iron Top End Table",
+          "rating": "5.0",
+          "date": "2026-05-20",
+          "text": "This is table is an eye stopper. It looks very unique and unusual and at the same time very functional"
+        },
+        {
+          "product": "Randal Chenille Accent Chair",
+          "rating": "5.0",
+          "date": "2026-05-16",
+          "text": "I got the dark brown. It's firm but comfortable and it's low but it works for me. Love it."
+        }
+      ],
+      "weight": 0.4126
+    },
+    {
+      "name": "艺术感/独特性",
+      "mentions": 140,
+      "share": 0.142,
+      "avgRating": 4.84,
+      "negativeCount": 1,
+      "negativeShare": 0.0071,
+      "description": "关注是否足够独特、是否能作为空间中的设计焦点或收藏感单品。",
+      "keywords": [
+        "art",
+        "work of art",
+        "sculptural",
+        "statement",
+        "unique",
+        "showstopper",
+        "iconic",
+        "conversation"
+      ],
+      "evidence": [
+        {
+          "product": "Elivra Iron Top End Table",
+          "rating": "5.0",
+          "date": "2026-05-20",
+          "text": "This is table is an eye stopper. It looks very unique and unusual and at the same time very functional"
+        },
+        {
+          "product": "Masters 18.11'' H Stacking Armchair (Set of 2)",
+          "rating": "5.0",
+          "date": "2026-04-21",
+          "text": "absolutely love the Masters Armchair by Kartell. The design is stunning—modern, sculptural, and instantly elevates the entire balcony. They’re surprisingly sturdy with a solid weight that feels high-quality wi..."
+        }
+      ],
+      "weight": 0.2602
+    },
+    {
+      "name": "图片/描述一致性",
+      "mentions": 121,
+      "share": 0.1227,
+      "avgRating": 4.48,
+      "negativeCount": 9,
+      "negativeShare": 0.0744,
+      "description": "关注商品图、颜色、比例和描述是否与实物一致。",
+      "keywords": [
+        "picture",
+        "photo",
+        "as pictured",
+        "as described",
+        "expected",
+        "different",
+        "actual",
+        "in person"
+      ],
+      "evidence": [
+        {
+          "product": "Raechell Solid Wood End Table",
+          "rating": "5.0",
+          "date": "2026-04-02",
+          "text": "Omg this a beautiful piece I got so many compliment and it is exactly the way the picture is"
+        },
+        {
+          "product": "Kloud 1 - Light Single Globe Pendant",
+          "rating": "5.0",
+          "date": "2026-02-03",
+          "text": "Beyone beautiful really are amazing in person"
+        }
+      ],
+      "weight": 0.2249
+    },
+    {
+      "name": "物流包装与到货",
+      "mentions": 114,
+      "share": 0.1156,
+      "avgRating": 4.25,
+      "negativeCount": 18,
+      "negativeShare": 0.1579,
+      "description": "担心运输破损、包装保护不足、补发和售后处理。",
+      "keywords": [
+        "shipping",
+        "delivery",
+        "arrived",
+        "packaged",
+        "packaging",
+        "box",
+        "damaged",
+        "scratches"
+      ],
+      "evidence": [
+        {
+          "product": "Elivra Iron Top End Table",
+          "rating": "5.0",
+          "date": "2026-02-15",
+          "text": "VERY FAST SHIPPING AND TABLE IS GREAT. THANKS"
+        },
+        {
+          "product": "Elivra Iron Top End Table",
+          "rating": "5.0",
+          "date": "2026-01-20",
+          "text": "Love this table! Exact size I was looking for! It's sturdy & heavy. Arrived fast and it was packaged so well that I had a difficult time getting it out of the packaging and box. Nothing to put together was an..."
+        }
+      ],
+      "weight": 0.2119
+    },
+    {
+      "name": "价格与价值感",
+      "mentions": 107,
+      "share": 0.1085,
+      "avgRating": 4.68,
+      "negativeCount": 4,
+      "negativeShare": 0.0374,
+      "description": "衡量价格是否匹配设计、材质、品牌和耐用性。",
+      "keywords": [
+        "price",
+        "value",
+        "worth",
+        "expensive",
+        "overpriced",
+        "cheap",
+        "deal",
+        "investment"
+      ],
+      "evidence": [
+        {
+          "product": "Lize Upholstered Swivel Barrel Chair",
+          "rating": "5.0",
+          "date": "2026-05-03",
+          "text": "We love these chairs, great buy"
+        },
+        {
+          "product": "Raechell Solid Wood End Table",
+          "rating": "5.0",
+          "date": "2026-05-02",
+          "text": "Heavy solid piece that feels like great value for cost"
+        }
+      ],
+      "weight": 0.1989
+    },
+    {
+      "name": "材质与质感",
+      "mentions": 95,
+      "share": 0.0963,
+      "avgRating": 4.29,
+      "negativeCount": 12,
+      "negativeShare": 0.1263,
+      "description": "关注真实触感、表面工艺、材质高级感，以及是否有廉价感。",
+      "keywords": [
+        "wood",
+        "leather",
+        "fabric",
+        "boucle",
+        "plastic",
+        "metal",
+        "material",
+        "texture"
+      ],
+      "evidence": [
+        {
+          "product": "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)",
+          "rating": "5.0",
+          "date": "2026-02-01",
+          "text": "Super cute and easy for a kids room. Durable material and love the pink color. Makes a nice set for the kids playroom."
+        },
+        {
+          "product": "Kloud 1 - Light Single Globe Pendant",
+          "rating": "5.0",
+          "date": "2026-01-14",
+          "text": "Gorgeous! Too bad a painter at my house bumped it and it cracked. Beautiful color, substantial material. He bumped it pretty hard"
+        }
+      ],
+      "weight": 0.1766
+    },
+    {
+      "name": "安装与使用门槛",
+      "mentions": 65,
+      "share": 0.0659,
+      "avgRating": 4.65,
+      "negativeCount": 5,
+      "negativeShare": 0.0769,
+      "description": "关注是否免安装、安装难度、配件完整性和开箱便利性。",
+      "keywords": [
+        "assemble",
+        "assembly",
+        "assembled",
+        "install",
+        "installation",
+        "instructions",
+        "hardware",
+        "screw"
+      ],
+      "evidence": [
+        {
+          "product": "Elivra Iron Top End Table",
+          "rating": "5.0",
+          "date": "2025-09-14",
+          "text": "This is an awesome table. Unique, solid, heavy, no assembly needed, and taller than most of the tables I've been looking at. Can work with browns, blacks, gold tones as well."
+        },
+        {
+          "product": "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)",
+          "rating": "5.0",
+          "date": "2025-07-26",
+          "text": "No assembly required. Just as described."
+        }
+      ],
+      "weight": 0.1208
+    }
+  ],
   "buyerGroups": [
     {
       "name": "家居审美升级者",

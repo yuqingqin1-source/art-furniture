@@ -512,6 +512,45 @@ h3 {
   margin-top: 14px;
 }
 
+.concern-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.concern-cloud {
+  min-height: 430px;
+}
+
+.concern-card-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.concern-card {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.concern-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.concern-name {
+  font-weight: 700;
+}
+
+.concern-desc {
+  margin-top: 8px;
+  color: #475467;
+}
+
 .buyer-card {
   padding: 14px;
   border: 1px solid var(--line);
@@ -863,6 +902,7 @@ h3 {
   .content-grid.two,
   .insight-list,
   .taxonomy-grid,
+  .concern-layout,
   .buyer-card-grid,
   .scene-layout,
   .unmet-grid,
@@ -914,6 +954,10 @@ h3 {
 
   .word-cloud {
     min-height: 300px;
+  }
+
+  .concern-cloud {
+    min-height: 360px;
   }
 
   h2 {

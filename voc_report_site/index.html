@@ -19,6 +19,7 @@
         <nav class="side-nav" aria-label="报告导航">
           <a class="active" href="#overview">概览</a>
           <a href="#taxonomy">标签体系</a>
+          <a href="#concern">购买关注点</a>
           <a href="#buyer">买家群体</a>
           <a href="#scene">使用场景</a>
           <a href="#unmet">未满足需求</a>
@@ -96,6 +97,23 @@
             </div>
           </div>
           <div class="taxonomy-grid" id="taxonomyGrid"></div>
+        </section>
+
+        <section class="panel" id="concern">
+          <div class="panel-head">
+            <div>
+              <div class="section-kicker">Purchase Concerns</div>
+              <h3>购买关注点分析</h3>
+            </div>
+            <span class="pill">基于评论中的决策关注词聚合</span>
+          </div>
+          <div class="concern-layout">
+            <div>
+              <div class="buyer-legend" id="concernLegend"></div>
+              <div class="word-cloud concern-cloud" id="concernWordCloud"></div>
+            </div>
+            <div class="concern-card-grid" id="concernCards"></div>
+          </div>
         </section>
 
         <section class="panel" id="buyer">

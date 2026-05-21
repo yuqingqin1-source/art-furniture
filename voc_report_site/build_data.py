@@ -13,6 +13,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "voc_report_site" / "data.js"
+DATA_ROOT = ROOT if (ROOT / "outputs").exists() else Path("/Users/qing/Documents/New project")
 
 
 TAXONOMY = {
@@ -132,6 +133,49 @@ UNMET_NEED_PATTERNS = {
     },
 }
 
+PURCHASE_CONCERN_PATTERNS = {
+    "外观设计": {
+        "keywords": ["beautiful", "gorgeous", "stylish", "design", "modern", "sleek", "look", "looks", "color", "decor"],
+        "description": "购买前最先判断是否好看、是否符合空间风格、颜色是否能成为视觉亮点。",
+    },
+    "尺寸与空间适配": {
+        "keywords": ["size", "small", "large", "wide", "short", "height", "fit", "fits", "space", "room", "apartment"],
+        "description": "关注尺寸、高度、宽度和摆放空间，担心到手后比例不对或放不下。",
+    },
+    "材质与质感": {
+        "keywords": ["wood", "leather", "fabric", "boucle", "plastic", "metal", "material", "texture", "finish", "grain"],
+        "description": "关注真实触感、表面工艺、材质高级感，以及是否有廉价感。",
+    },
+    "质量与稳固性": {
+        "keywords": ["quality", "sturdy", "solid", "durable", "well made", "heavy", "wobbly", "fragile", "broken", "cracked"],
+        "description": "关注结构是否稳、做工是否可靠、是否耐用，尤其是椅子和大件家具。",
+    },
+    "舒适度与实用性": {
+        "keywords": ["comfortable", "comfy", "sit", "seat", "firm", "soft", "functional", "versatile", "swivel", "support"],
+        "description": "既要艺术造型，也要能坐、能放、能日常使用。",
+    },
+    "价格与价值感": {
+        "keywords": ["price", "value", "worth", "expensive", "overpriced", "cheap", "deal", "investment", "great buy", "for the money"],
+        "description": "衡量价格是否匹配设计、材质、品牌和耐用性。",
+    },
+    "图片/描述一致性": {
+        "keywords": ["picture", "photo", "as pictured", "as described", "expected", "different", "actual", "in person", "true to description"],
+        "description": "关注商品图、颜色、比例和描述是否与实物一致。",
+    },
+    "物流包装与到货": {
+        "keywords": ["shipping", "delivery", "arrived", "packaged", "packaging", "box", "damaged", "scratches", "replacement"],
+        "description": "担心运输破损、包装保护不足、补发和售后处理。",
+    },
+    "安装与使用门槛": {
+        "keywords": ["assemble", "assembly", "assembled", "install", "installation", "instructions", "hardware", "screw", "unbox"],
+        "description": "关注是否免安装、安装难度、配件完整性和开箱便利性。",
+    },
+    "艺术感/独特性": {
+        "keywords": ["art", "work of art", "sculptural", "statement", "unique", "showstopper", "iconic", "conversation", "classic"],
+        "description": "关注是否足够独特、是否能作为空间中的设计焦点或收藏感单品。",
+    },
+}
+
 BUYER_GROUP_PATTERNS = {
     "家居审美升级者": {
         "keywords": ["living room", "room", "decor", "stylish", "beautiful", "gorgeous", "elegant", "sophistication", "elevates", "statement piece"],
@@ -204,10 +248,10 @@ def image_from_series(series: pd.Series) -> str:
 
 
 def main() -> None:
-    tagged = pd.read_csv(ROOT / "outputs" / "review_with_voc_tags.csv")
-    tags = pd.read_csv(ROOT / "outputs" / "voc_tag_summary.csv")
-    products = pd.read_csv(ROOT / "outputs" / "product_summary.csv")
-    clean_reviews = pd.read_csv(ROOT / "data_clean" / "all_reviews_clean.csv")
+    tagged = pd.read_csv(DATA_ROOT / "outputs" / "review_with_voc_tags.csv")
+    tags = pd.read_csv(DATA_ROOT / "outputs" / "voc_tag_summary.csv")
+    products = pd.read_csv(DATA_ROOT / "outputs" / "product_summary.csv")
+    clean_reviews = pd.read_csv(DATA_ROOT / "data_clean" / "all_reviews_clean.csv")
 
     for frame in (tagged, clean_reviews):
         frame["rating"] = pd.to_numeric(frame["rating"], errors="coerce")
@@ -417,6 +461,39 @@ def main() -> None:
         )
     unmet_needs.sort(key=lambda item: (item["negativeCount"], item["severity"], item["mentions"]), reverse=True)
 
+    purchase_concerns = []
+    for name, cfg in PURCHASE_CONCERN_PATTERNS.items():
+        subset = tagged[pattern_mask(tagged["review_text"], cfg["keywords"])].copy()
+        if subset.empty:
+            continue
+        evidence_rows = subset.sort_values(["rating", "review_date"], ascending=[False, False]).head(2)
+        negative_count = int((subset["sentiment"] == "负向").sum())
+        purchase_concerns.append(
+            {
+                "name": name,
+                "mentions": int(len(subset)),
+                "share": round(float(len(subset)) / total_reviews, 4),
+                "avgRating": round(float(subset["rating"].mean()), 2),
+                "negativeCount": negative_count,
+                "negativeShare": round(negative_count / len(subset), 4),
+                "description": cfg["description"],
+                "keywords": cfg["keywords"][:8],
+                "evidence": [
+                    {
+                        "product": row["product_name"],
+                        "rating": clean(row["rating"]),
+                        "date": clean(row["review_date"]),
+                        "text": truncate(row["review_text"]),
+                    }
+                    for _, row in evidence_rows.iterrows()
+                ],
+            }
+        )
+    purchase_concerns.sort(key=lambda item: (item["mentions"], item["negativeCount"]), reverse=True)
+    max_concern_mentions = max([item["mentions"] for item in purchase_concerns] or [1])
+    for item in purchase_concerns:
+        item["weight"] = round(item["mentions"] / max_concern_mentions, 4)
+
     buyer_assignments = []
     for idx, row in tagged.iterrows():
         for name in matched_pattern_names(row["review_text"], BUYER_GROUP_PATTERNS):
@@ -532,6 +609,7 @@ def main() -> None:
         "scenes": scenes,
         "sceneTrend": scene_trend,
         "unmetNeeds": unmet_needs,
+        "purchaseConcerns": purchase_concerns,
         "buyerGroups": buyer_groups,
         "buyerTrend": buyer_trend,
         "opportunities": [
