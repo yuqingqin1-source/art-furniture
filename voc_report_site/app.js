@@ -327,6 +327,44 @@ function renderHeatmap() {
   document.getElementById("heatmap").innerHTML = head + rows;
 }
 
+function renderPriceFunctionHeatmap() {
+  const payload = data.priceFunction;
+  if (!payload) return;
+  document.getElementById("priceFunctionNote").textContent = payload.note;
+  const columns = payload.columns;
+  const maxValue = Math.max(...payload.rows.flatMap((row) => row.cells.map((cell) => cell.value)), 0.01);
+  const header = `
+    <div class="price-heat-row">
+      <div class="price-heat-head">价格段($)</div>
+      ${columns.map((col) => `<div class="price-heat-head">${col}</div>`).join("")}
+    </div>
+  `;
+  const rows = payload.rows.map((row) => `
+    <div class="price-heat-row">
+      <div class="price-heat-band">${row.priceBand}<br /><span class="card-desc">${row.reviewCount}条</span></div>
+      ${row.cells.map((cell) => {
+        const alpha = 0.12 + (cell.value / maxValue) * 0.72;
+        const textColor = cell.value / maxValue > 0.68 ? "#fff" : "#101828";
+        return `
+          <div class="price-heat-cell" style="background:rgba(22,119,255,${alpha});color:${textColor}" title="${row.priceBand} · ${cell.name} · ${cell.count}条">
+            ${pct(cell.value)}
+            <small style="color:${textColor === "#fff" ? "rgba(255,255,255,.78)" : "rgba(16,24,40,.62)"}">${cell.count}条</small>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `).join("");
+  document.getElementById("priceFunctionHeatmap").innerHTML = header + rows;
+
+  const bandCounts = {};
+  payload.productBands.forEach((item) => {
+    bandCounts[item.priceBand] = (bandCounts[item.priceBand] || 0) + 1;
+  });
+  document.getElementById("priceBandList").innerHTML = Object.entries(bandCounts).map(([band, count]) => `
+    <span class="tag-chip">${band}：${count}个产品</span>
+  `).join("");
+}
+
 function renderOpportunities() {
   const head = `<div class="opp-row head"><div>优先级</div><div>标签</div><div>行动建议</div><div>跟踪指标</div></div>`;
   const rows = data.opportunities.map((item) => `
@@ -386,4 +424,5 @@ renderInsights("painList", data.pain);
 renderInsights("delightList", data.delight);
 renderProducts();
 renderHeatmap();
+renderPriceFunctionHeatmap();
 renderOpportunities();

@@ -1885,6 +1885,328 @@ window.VOC_DATA = {
       "weight": 0.1208
     }
   ],
+  "priceFunction": {
+    "note": "源 Excel 未提供真实价格字段；当前价格段为产品级估算分层，用于观察不同价格带的功能关注差异，建议后续接入商品价格表校准。",
+    "columns": [
+      "外观审美",
+      "情绪价值",
+      "收藏感/独特性",
+      "实用性/舒适性",
+      "价格价值感",
+      "可搭配性",
+      "尺寸与空间适配",
+      "材质",
+      "做工质感"
+    ],
+    "rows": [
+      {
+        "priceBand": "$120-300",
+        "reviewCount": 259,
+        "cells": [
+          {
+            "name": "外观审美",
+            "value": 0.5521,
+            "count": 143
+          },
+          {
+            "name": "情绪价值",
+            "value": 0.4363,
+            "count": 113
+          },
+          {
+            "name": "收藏感/独特性",
+            "value": 0.1429,
+            "count": 37
+          },
+          {
+            "name": "实用性/舒适性",
+            "value": 0.0849,
+            "count": 22
+          },
+          {
+            "name": "价格价值感",
+            "value": 0.1158,
+            "count": 30
+          },
+          {
+            "name": "可搭配性",
+            "value": 0.2085,
+            "count": 54
+          },
+          {
+            "name": "尺寸与空间适配",
+            "value": 0.3205,
+            "count": 83
+          },
+          {
+            "name": "材质",
+            "value": 0.0618,
+            "count": 16
+          },
+          {
+            "name": "做工质感",
+            "value": 0.2973,
+            "count": 77
+          }
+        ]
+      },
+      {
+        "priceBand": "$300-600",
+        "reviewCount": 386,
+        "cells": [
+          {
+            "name": "外观审美",
+            "value": 0.5052,
+            "count": 195
+          },
+          {
+            "name": "情绪价值",
+            "value": 0.4896,
+            "count": 189
+          },
+          {
+            "name": "收藏感/独特性",
+            "value": 0.1554,
+            "count": 60
+          },
+          {
+            "name": "实用性/舒适性",
+            "value": 0.1943,
+            "count": 75
+          },
+          {
+            "name": "价格价值感",
+            "value": 0.114,
+            "count": 44
+          },
+          {
+            "name": "可搭配性",
+            "value": 0.1969,
+            "count": 76
+          },
+          {
+            "name": "尺寸与空间适配",
+            "value": 0.2332,
+            "count": 90
+          },
+          {
+            "name": "材质",
+            "value": 0.1295,
+            "count": 50
+          },
+          {
+            "name": "做工质感",
+            "value": 0.3083,
+            "count": 119
+          }
+        ]
+      },
+      {
+        "priceBand": "$600-1200",
+        "reviewCount": 260,
+        "cells": [
+          {
+            "name": "外观审美",
+            "value": 0.4846,
+            "count": 126
+          },
+          {
+            "name": "情绪价值",
+            "value": 0.4269,
+            "count": 111
+          },
+          {
+            "name": "收藏感/独特性",
+            "value": 0.1731,
+            "count": 45
+          },
+          {
+            "name": "实用性/舒适性",
+            "value": 0.2885,
+            "count": 75
+          },
+          {
+            "name": "价格价值感",
+            "value": 0.1731,
+            "count": 45
+          },
+          {
+            "name": "可搭配性",
+            "value": 0.3,
+            "count": 78
+          },
+          {
+            "name": "尺寸与空间适配",
+            "value": 0.3231,
+            "count": 84
+          },
+          {
+            "name": "材质",
+            "value": 0.0846,
+            "count": 22
+          },
+          {
+            "name": "做工质感",
+            "value": 0.2192,
+            "count": 57
+          }
+        ]
+      },
+      {
+        "priceBand": ">$1200",
+        "reviewCount": 81,
+        "cells": [
+          {
+            "name": "外观审美",
+            "value": 0.5802,
+            "count": 47
+          },
+          {
+            "name": "情绪价值",
+            "value": 0.4568,
+            "count": 37
+          },
+          {
+            "name": "收藏感/独特性",
+            "value": 0.0617,
+            "count": 5
+          },
+          {
+            "name": "实用性/舒适性",
+            "value": 0.5309,
+            "count": 43
+          },
+          {
+            "name": "价格价值感",
+            "value": 0.1235,
+            "count": 10
+          },
+          {
+            "name": "可搭配性",
+            "value": 0.1358,
+            "count": 11
+          },
+          {
+            "name": "尺寸与空间适配",
+            "value": 0.1605,
+            "count": 13
+          },
+          {
+            "name": "材质",
+            "value": 0.0494,
+            "count": 4
+          },
+          {
+            "name": "做工质感",
+            "value": 0.2346,
+            "count": 19
+          }
+        ]
+      }
+    ],
+    "productBands": [
+      {
+        "product": "Abdullahi Glass Top End Table",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Desiree 22.5_ Wide Boucle Fabric Accent Chair",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Elivra Iron Top End Table",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Kloud 1 - Light Single Globe Pendant",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Modern Table",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Randal Chenille Accent Chair",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)",
+        "priceBand": "$120-300"
+      },
+      {
+        "product": "Aaisha Faux Leather Armchair",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "FL_Y 1 - Light Single Pendant",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Lize Upholstered Swivel Barrel Chair",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Max Beam End Table",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Modway Vivi 30.5 Wide",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Raechell Solid Wood End Table",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Rider Dining Chair",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Rider Upholstered Side Chair",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Upholstered Counter Stool with Metal Frame (Set of 2)",
+        "priceBand": "$300-600"
+      },
+      {
+        "product": "Beaumont Lounge Chair",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Lampert Sofa",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Lodge Chair",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Masters 18.11'' H Stacking Armchair (Set of 2)",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Meurice 42 - Light Dimmable Modern Linear Chandelier",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Serpent End Table",
+        "priceBand": "$600-1200"
+      },
+      {
+        "product": "Hot Mesh Lounge Chair",
+        "priceBand": ">$1200"
+      },
+      {
+        "product": "Ventana 12 - Light Tiered Chandelier",
+        "priceBand": ">$1200"
+      }
+    ]
+  },
   "buyerGroups": [
     {
       "name": "家居审美升级者",

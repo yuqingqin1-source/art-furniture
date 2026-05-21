@@ -806,6 +806,72 @@ h3 {
   overflow: auto;
 }
 
+.heatmap-note {
+  margin: -4px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.price-heatmap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.price-heat-row {
+  display: grid;
+  grid-template-columns: 110px repeat(9, minmax(118px, 1fr));
+  min-width: 1180px;
+}
+
+.price-heat-head,
+.price-heat-band,
+.price-heat-cell {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.price-heat-head,
+.price-heat-band {
+  color: #344054;
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.price-heat-head {
+  min-height: 72px;
+  font-size: 12px;
+}
+
+.price-heat-cell {
+  position: relative;
+  color: #101828;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.price-heat-cell small {
+  display: block;
+  margin-top: 3px;
+  color: rgba(16, 24, 40, 0.62);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.price-band-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .heat-row {
   display: grid;
   grid-template-columns: 150px repeat(8, minmax(54px, 1fr));

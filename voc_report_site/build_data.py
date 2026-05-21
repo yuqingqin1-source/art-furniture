@@ -176,6 +176,48 @@ PURCHASE_CONCERN_PATTERNS = {
     },
 }
 
+PRODUCT_PRICE_BANDS = {
+    "Aaisha Faux Leather Armchair": "$300-600",
+    "Abdullahi Glass Top End Table": "$120-300",
+    "Beaumont Lounge Chair": "$600-1200",
+    "Desiree 22.5_ Wide Boucle Fabric Accent Chair": "$120-300",
+    "Elivra Iron Top End Table": "$120-300",
+    "FL_Y 1 - Light Single Pendant": "$300-600",
+    "Hot Mesh Lounge Chair": ">$1200",
+    "Kloud 1 - Light Single Globe Pendant": "$120-300",
+    "Lampert Sofa": "$600-1200",
+    "Lize Upholstered Swivel Barrel Chair": "$300-600",
+    "Lodge Chair": "$600-1200",
+    "Louis Ghost Premium All-Weather Wicker Outdoor Stacking Dining Armchair (Set of 2)": "$600-1200",
+    "Masters 18.11'' H Stacking Armchair (Set of 2)": "$600-1200",
+    "Max Beam End Table": "$300-600",
+    "Meurice 42 - Light Dimmable Modern Linear Chandelier": "$600-1200",
+    "Modern Table": "$120-300",
+    "Modway Vivi 30.5 Wide": "$300-600",
+    "Raechell Solid Wood End Table": "$300-600",
+    "Randal Chenille Accent Chair": "$120-300",
+    "Rider Dining Chair": "$300-600",
+    "Rider Upholstered Side Chair": "$300-600",
+    "Saralie Modern ABS Plastic Side Table – Curved Geometric Design End Table with Pedestal Base, Living Room Table or Bedroom Nightstand (Set of 2)": "$120-300",
+    "Serpent End Table": "$600-1200",
+    "Upholstered Counter Stool with Metal Frame (Set of 2)": "$300-600",
+    "Ventana 12 - Light Tiered Chandelier": ">$1200",
+}
+
+PRICE_BAND_ORDER = ["$120-300", "$300-600", "$600-1200", ">$1200"]
+
+PRICE_FUNCTION_PATTERNS = {
+    "外观审美": ["外观审美"],
+    "情绪价值": ["情绪价值"],
+    "收藏感/独特性": ["艺术感/收藏感"],
+    "实用性/舒适性": ["舒适度/实用性"],
+    "价格价值感": ["价格价值感"],
+    "可搭配性": ["match", "matches", "goes with", "blend", "blends", "pair", "pairs", "addition", "accent", "decor", "space", "room"],
+    "尺寸与空间适配": ["尺寸与空间适配"],
+    "材质": ["材质质感"],
+    "做工质感": ["做工质量"],
+}
+
 BUYER_GROUP_PATTERNS = {
     "家居审美升级者": {
         "keywords": ["living room", "room", "decor", "stylish", "beautiful", "gorgeous", "elegant", "sophistication", "elevates", "statement piece"],
@@ -494,6 +536,43 @@ def main() -> None:
     for item in purchase_concerns:
         item["weight"] = round(item["mentions"] / max_concern_mentions, 4)
 
+    tagged["price_band"] = tagged["product_name"].map(PRODUCT_PRICE_BANDS).fillna("未定价")
+    price_function_heatmap = []
+    for band in PRICE_BAND_ORDER:
+        band_subset = tagged[tagged["price_band"] == band].copy()
+        denom = len(band_subset)
+        cells = []
+        for function_name, patterns in PRICE_FUNCTION_PATTERNS.items():
+            if denom:
+                matches = 0
+                for _, row in band_subset.iterrows():
+                    tag_text = clean(row["voc_tags"])
+                    review_text = clean(row["review_text"]).lower()
+                    if any(pattern in tag_text for pattern in patterns) or any(pattern in review_text for pattern in patterns):
+                        matches += 1
+                value = round(matches / denom, 4)
+            else:
+                matches = 0
+                value = 0
+            cells.append(
+                {
+                    "name": function_name,
+                    "value": value,
+                    "count": int(matches),
+                }
+            )
+        price_function_heatmap.append(
+            {
+                "priceBand": band,
+                "reviewCount": int(denom),
+                "cells": cells,
+            }
+        )
+    product_price_bands = [
+        {"product": product, "priceBand": band}
+        for product, band in sorted(PRODUCT_PRICE_BANDS.items(), key=lambda item: (PRICE_BAND_ORDER.index(item[1]) if item[1] in PRICE_BAND_ORDER else 99, item[0]))
+    ]
+
     buyer_assignments = []
     for idx, row in tagged.iterrows():
         for name in matched_pattern_names(row["review_text"], BUYER_GROUP_PATTERNS):
@@ -610,6 +689,12 @@ def main() -> None:
         "sceneTrend": scene_trend,
         "unmetNeeds": unmet_needs,
         "purchaseConcerns": purchase_concerns,
+        "priceFunction": {
+            "note": "源 Excel 未提供真实价格字段；当前价格段为产品级估算分层，用于观察不同价格带的功能关注差异，建议后续接入商品价格表校准。",
+            "columns": list(PRICE_FUNCTION_PATTERNS.keys()),
+            "rows": price_function_heatmap,
+            "productBands": product_price_bands,
+        },
         "buyerGroups": buyer_groups,
         "buyerTrend": buyer_trend,
         "opportunities": [
