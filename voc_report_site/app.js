@@ -344,7 +344,7 @@ function renderPriceFunctionHeatmap() {
       <div class="price-heat-band">${row.priceBand}<br /><span class="card-desc">${row.reviewCount}条</span></div>
       ${row.cells.map((cell) => {
         const alpha = 0.12 + (cell.value / maxValue) * 0.72;
-        const satisfactionColor = cell.satisfaction >= 0.6 ? "#15803d" : "#d92d20";
+        const satisfactionColor = cell.satisfaction >= 0.9 ? "#15803d" : "#d92d20";
         const countColor = cell.value / maxValue > 0.68 ? "rgba(255,255,255,.78)" : "rgba(16,24,40,.62)";
         return `
           <div class="price-heat-cell" style="background:rgba(22,119,255,${alpha});color:${satisfactionColor}" title="${row.priceBand} · ${cell.name} · 提及${pct(cell.value)} · 满意度${pct(cell.satisfaction)} · ${cell.positiveCount}/${cell.count}条正向">

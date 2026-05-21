@@ -601,9 +601,9 @@ def main() -> None:
     priced_product_count = int(len(PRODUCT_PRICES))
     total_product_count = int(tagged["product_name"].nunique())
     if priced_product_count >= total_product_count:
-        price_note = f"价格基于用户提供的真实商品价格；当前覆盖全部 {priced_product_count} 个产品、{priced_review_count} 条评论。背景深浅表示提及频率，格内百分比表示正向满意度。"
+        price_note = f"价格基于用户提供的真实商品价格；当前覆盖全部 {priced_product_count} 个产品、{priced_review_count} 条评论。背景深浅表示提及频率，格内百分比表示正向满意度，低于90%显示红色。"
     else:
-        price_note = f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。背景深浅表示提及频率，格内百分比表示正向满意度。"
+        price_note = f"价格基于用户提供的真实商品价格；当前覆盖 {priced_product_count} 个产品、{priced_review_count} 条评论，未提供价格的产品暂不纳入本热力图。背景深浅表示提及频率，格内百分比表示正向满意度，低于90%显示红色。"
 
     buyer_assignments = []
     for idx, row in tagged.iterrows():
